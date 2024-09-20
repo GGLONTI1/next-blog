@@ -8,6 +8,7 @@
 .imageContainer {
   flex: 1;
   height: 350px;
+  width: 100%;
   position: relative;
 }
 
@@ -41,4 +42,19 @@
   border-bottom: 1px solid crimson;
   width: max-content;
   padding: 2px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 800px;
+    width: 500px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .container {
+    flex-direction: column;
+    height: 800px;
+    width: 100%;
+  }
 }
