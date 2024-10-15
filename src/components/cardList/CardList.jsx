@@ -4,19 +4,33 @@ import Pagination from '../pagination/Pagination'
 import Image from 'next/image'
 import Card from '../card/Card'
 
-const CardList = () => {
+const getData = async (page, cat) => {
+  const res = await fetch(`http://localhost:3000/api/posts?page=${page}&cat=${cat}`, {
+    cache: "no-store"
+  })
+  if (!res.ok) {
+    return new Error("error fetching category posts")
+  }
+  return res.json()
+}
+
+
+
+const CardList = async ({ page, cat }) => {
+
+  const { posts, count } = await getData(page, cat)
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Recent Posts</h1>
       <div className={styles.posts}>
         <div className={styles.post}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {posts.map(post => <Card key={post.id} post={post} />
+          )}
+
         </div>
       </div>
-      <Pagination />
+      <Pagination page={page} />
     </div>
   )
 }
