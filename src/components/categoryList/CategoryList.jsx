@@ -3,6 +3,10 @@ import styles from "./categoryList.module.css"
 import Link from 'next/link'
 import Image from 'next/image'
 
+const getData = () => {
+
+}
+
 const CategoryList = () => {
   return (
     <div className={styles.container}>
