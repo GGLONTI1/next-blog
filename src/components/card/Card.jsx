@@ -11,9 +11,9 @@ const Card = ({ post }) => {
             <div className={styles.textContainer}>
                 <div className={styles.detail}>
                     <span className={styles.date}>11.02.2024</span>
-                    <span className={styles.category}> - Culture</span>
+                    <span className={styles.category}> - {post.catSlug}</span>
                 </div>
-                <Link href={"/"}>
+                <Link href={`/posts/${post.slug}`}>
                     <h1>{post.title}</h1>
                 </Link>
                 <p className={styles.desc}>
